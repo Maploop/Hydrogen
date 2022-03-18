@@ -2,6 +2,7 @@ package me.peanut.hydrogen;
 
 import com.thealtening.auth.AltService;
 import com.vdurmont.semver4j.Semver;
+import me.peanut.hydrogen.events.EventOpenGui;
 import me.peanut.hydrogen.events.EventWorldListener;
 import me.peanut.hydrogen.file.files.ClickGuiConfig;
 import me.peanut.hydrogen.file.files.ModuleConfig;
@@ -118,6 +119,8 @@ public class Hydrogen {
             moduleManager.getModule(ArrayList.class).toggle();
             moduleManager.getModule(Watermark.class).toggle();
         }
+
+        MinecraftForge.EVENT_BUS.register(new EventOpenGui());
     }
 
     public static Hydrogen getClient() {

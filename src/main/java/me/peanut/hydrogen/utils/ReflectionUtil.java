@@ -1,6 +1,7 @@
 package me.peanut.hydrogen.utils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.inventory.GuiEditSign;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.shader.Shader;
@@ -22,6 +23,7 @@ public class ReflectionUtil {
     public static final Field theShaderGroup = ReflectionHelper.findField(EntityRenderer.class, "field_147707_d", "theShaderGroup");
 
     public static final Field listShaders = ReflectionHelper.findField(ShaderGroup.class, "field_148031_d", "listShaders");
+    public static final Field tileSign = ReflectionHelper.findField(GuiEditSign.class, "tileSign");
 
     static {
         delayTimer.setAccessible(true);
@@ -29,8 +31,7 @@ public class ReflectionUtil {
         pressed.setAccessible(true);
         theShaderGroup.setAccessible(true);
         listShaders.setAccessible(true);
-
-
+        tileSign.setAccessible(true);
     }
 }
 
